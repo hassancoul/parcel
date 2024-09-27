@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: service-client
+  datasource:
+    url: jdbc:postgresql://${CUSTOMER_DB_HOST}:${CUSTOMER_DB_PORT}/${CUSTOMER_DB_NAME}
+    username: ${CUSTOMER_DB_USER}
+    password: ${CUSTOMER_DB_PASSWORD}
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db-changelog-master.yaml

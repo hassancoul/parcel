@@ -1,0 +1,13 @@
+sercices:
+  customer_db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${CUSTOMER_DB_NAME}
+      POSTGRES_USER: ${CUSTOMER_DB_USER}
+      POSTGRES_PASSWORD: ${CUSTOMER_DB_PASSWORD}
+    volumes:
+      - app_db_data:/var/lib/postgresql/data
+    ports:
+      - "5401:5432"
+    networks:
+      inside:
