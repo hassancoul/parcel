@@ -1,4 +1,4 @@
-package com.devhas.customer;
+package com.devhas.client;
 
 
 import com.devhas.client.application.annotation.UseCase;
@@ -39,7 +39,7 @@ public class ArchitectureTest {
                 .resideInAPackage("..domain..")
                 .should()
                 .dependOnClassesThat()
-                .resideInAnyPackage("org.springframework");
+                .resideInAnyPackage("..org.springframework..");
 
         regle.check(domainClasses);
     }

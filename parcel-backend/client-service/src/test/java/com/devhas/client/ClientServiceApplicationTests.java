@@ -1,10 +1,10 @@
-package com.devhas.customer;
+package com.devhas.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CustomerApplicationTests {
+class ClientServiceApplicationTests {
 
     @Test
     void contextLoads() {
