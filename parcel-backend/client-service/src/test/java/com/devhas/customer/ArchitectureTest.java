@@ -39,7 +39,7 @@ public class ArchitectureTest {
                 .resideInAPackage("..domain..")
                 .should()
                 .dependOnClassesThat()
-                .resideInAnyPackage("org.springframework");
+                .resideInAnyPackage("..org.springframework..");
 
         regle.check(domainClasses);
     }

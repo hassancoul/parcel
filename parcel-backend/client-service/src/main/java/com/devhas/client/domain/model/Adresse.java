@@ -1,6 +1,7 @@
 package com.devhas.client.domain.model;
 
-import org.springframework.util.Assert;
+
+import java.util.Objects;
 
 public record Adresse(String nom, String rue, String ville, String codePostal, String pays, Boolean estSupprime) {
 
@@ -9,10 +10,18 @@ public record Adresse(String nom, String rue, String ville, String codePostal, S
     }
 
     public Adresse {
-        Assert.notNull(rue, "Le champ rue ne doit pas être null dans l'adresse should not be null in address");
-        Assert.notNull(ville, "Le champ ville ne doit pas être null dans l'adresse");
-        Assert.notNull(codePostal, "Le champ code postal ne doit pas être null dans l'adresse");
-        Assert.notNull(pays, "Le champ pays ne doit pas être null dans l'adresse");
+        if (Objects.isNull(rue) || rue.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le champ rue ne doit pas être null dans l'adresse");
+        }
+        if (Objects.isNull(ville) || ville.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le champ ville ne doit pas être null dans l'adresse");
+        }
+        if (Objects.isNull(codePostal) || codePostal.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le champ code postal ne doit pas être null dans l'adresse");
+        }
+        if (Objects.isNull(pays) || pays.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le champ pays ne doit pas être null dans l'adresse");
+        }
     }
 
     public Adresse markAsDeleted() {

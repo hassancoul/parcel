@@ -1,11 +1,13 @@
 package com.devhas.client.domain.model;
 
-import lombok.Getter;
-import org.springframework.util.Assert;
+
+import java.util.Objects;
 
 public record Username(String username) {
 
     public Username {
-        Assert.notNull(username, "Le username est obligatoire");
+        if (Objects.isNull(username) || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le username est obligatoire et ne peut être vide");
+        }
     }
 }
